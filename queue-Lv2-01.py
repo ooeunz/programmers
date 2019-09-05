@@ -18,18 +18,45 @@ class MyQueue(object):
         self.stack1 = MyStack()
         self.stack2 = MyStack()
         self.max_size = max_size
+        self.element = 0
 
     def qsize(self):
-        # 구현하세요
-        pass
+        self.size = len(stack1) + len(stack2)
+        return self.size
 
     def push(self, item):
-        # 구현하세요
-        pass
+        if self.element >= self.max_size:
+            print("False")
+        else:
+            self.stack1.push(item)
+            self.element += 1
+            print("True")
 
     def pop(self):
-        # 구현하세요
-        pass
-    
+        if not stack2:
+            for i in stack1:
+                stack2.push(stack.pop())
+            element -= 1
+            print(stack2.pop())
+        else:
+            element -= 1
+            print(stack2.pop())
+
+  
 n, max_size = map(int, input().strip().split(' '))
-print(n, max_size)
+myQueue = MyQueue(max_size)
+while n:
+    instruction = []
+    instruction = input().split()
+
+    # instruction[1] = int(instruction[1])
+    
+    # PUSH
+    if instruction[0] == 'PUSH':
+        myQueue.push(instruction[1])
+    # POP
+    elif instruction[0] == 'POP':
+        myQueue.pop()
+    # SIZE
+    elif instruction[0] == 'SIZE':
+        myQueue.qsize()
