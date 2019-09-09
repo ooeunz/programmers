@@ -1,5 +1,7 @@
 # 최대 용량이 정해진 FIFO 큐 클래스
-
+class EmptyException(Exception):
+    def __init__(self):
+        pass
 class MyStack(object):
     def __init__(self):
         self.lst = list()
@@ -34,7 +36,7 @@ class MyQueue(object):
 
     def pop(self):
         if not self.element:
-            print("False")
+            raise EmptyException
         elif not self.stack2.lst:
             # question
             while self.stack1.lst:
@@ -63,6 +65,10 @@ if __name__ == "__main__":
         # POP
         elif instruction[0] == 'POP':
             myQueue.pop()
+            try:
+                myQueue.pop()
+            except EmptyException:
+                print("False")
         # SIZE
         elif instruction[0] == 'SIZE':
             myQueue.qsize()
