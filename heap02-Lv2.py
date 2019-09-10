@@ -13,7 +13,6 @@ def solution(no, works):
     result  = 0
     for i in works:
         result += i ** 2
-
     return result
 
 print(solution(no, works))
