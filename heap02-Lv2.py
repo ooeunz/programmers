@@ -2,17 +2,18 @@ import heapq
 
 no = 4
 works = [4, 3, 3]
+
 def solution(no, works):
-    last = len(works)-1
+    works = [-work for work in works]
+    heapq.heapify(works)
 
     while no:
-        works.sort()
-        if works[last]:
-            works[last] -= 1
+        check = heapq.heappop(works)
+        check += 1
+        heapq.heappush(works, check)
         no -= 1
-    result  = 0
-    for i in works:
-        result += i ** 2
-    return result
+    
+    return sum([work ** 2 for work in works])
 
-print(solution(no, works))
+if __name__ == "__main__":
+    print(solution(no, works))
