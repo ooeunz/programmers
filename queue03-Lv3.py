@@ -20,7 +20,6 @@ def floodfill(image, check,  x, y, target):
                 floodfill(image, check, x, y-1, target)
                 return 1
             return 0
-    
         
 def solution(n, m, image):
     # check 2xlist
