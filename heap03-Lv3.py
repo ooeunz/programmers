@@ -1,3 +1,4 @@
+# 게임 아이템
 import heapq
 
 healths = [300, 200, 500]
