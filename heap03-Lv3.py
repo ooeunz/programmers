@@ -1,9 +1,6 @@
 # 게임 아이템
 import heapq
 
-healths = [200,120,150]	
-items = [[30,100],[500,30],[100,400]]
-
 def solution(healths, items):    
     healths.sort()
     for item in items:
@@ -28,4 +25,4 @@ def solution(healths, items):
     return ans
 
 if __name__ == "__main__":
-    print(solution(healths, items))
+    print(solution([200,120,150], [[30,100],[500,30],[100,400]]))

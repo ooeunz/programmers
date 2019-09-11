@@ -1,8 +1,5 @@
 # FloodFill
 from collections import deque
-n = 2   # 세로
-m = 3   # 가로
-image = [[1, 2, 3], [3, 2, 1]]
 
 def initialization(a, b, image, check):
     if a >= len(image) or b >= len(image[0]):
@@ -67,5 +64,5 @@ def solution(n, m, image):
     return ans
     
 if __name__ == "__main__":
-    print(solution(n, m, image))
+    print(solution(2, 3, [[1, 2, 3], [3, 2, 1]]))
 

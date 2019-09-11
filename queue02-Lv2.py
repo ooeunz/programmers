@@ -1,7 +1,5 @@
 # 기능개발
 from collections import deque
-progresses = [93,30,55]
-speeds = [1,30,5]
 
 def solution(progresses, speeds):
     progress = deque(progresses)
@@ -31,4 +29,4 @@ def solution(progresses, speeds):
 
 if __name__ == "__main__":
 
-    print(solution(progresses, speeds))
+    print(solution([93,30,55], [1,30,5]))

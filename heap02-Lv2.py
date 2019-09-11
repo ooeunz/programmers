@@ -1,9 +1,6 @@
 # 배상 비용 최소화
 import heapq
 
-no = 4
-works = [4, 3, 3]
-
 def solution(no, works):
     works = [-work for work in works]
     heapq.heapify(works)
@@ -17,4 +14,4 @@ def solution(no, works):
     return sum([work ** 2 for work in works])
 
 if __name__ == "__main__":
-    print(solution(no, works))
+    print(solution(4, [4, 3, 3]))
