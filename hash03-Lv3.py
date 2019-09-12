@@ -21,7 +21,6 @@ def countBingo(height, width, grid):
         if w == width-1 and grid[h][w] == True:
             count += 1
         w += 1
-    
     w = width-1
 
     for h in range(height):
@@ -30,7 +29,6 @@ def countBingo(height, width, grid):
         if h == height-1 and grid[h][w] == True:
                 count += 1
         w -= 1
-
     return count
 
 
@@ -42,10 +40,10 @@ def solution(board, nums):
     # check on bingo
     while nums:
         check = nums.pop()
-        for line in range(len(board)):
-            if check in board[line]:
-                board[line][check] = True
-   
+        for index, value in enumerate(board):
+            if check in value:
+                board[index][check] = True
+
     grid = list(map(lambda x: list(x.values()), board))
     height = len(grid)  # 세로
     width = len(grid[0])    # 가로
