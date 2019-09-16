@@ -5,14 +5,14 @@ def solution(v):
     x_point = [x for x, _ in v]
     y_point = [y for _, y in v]
 
-    x_counter = dict(Counter(x_point)).items()
-    y_counter = dict(Counter(y_point)).items()
+    x_counter = Counter(x_point)
+    y_counter = Counter(y_point)
 
     ans = []
-    x, _ = min(x_counter, key = lambda x:x[1])
-    y, _ = min(y_counter, key = lambda x:x[1])
-    ans.append(x)
-    ans.append(y)
+    x = x_counter.most_common()
+    y = y_counter.most_common()
+    ans.append(x[-1][0])
+    ans.append(y[-1][0])
 
     return ans
 if __name__ == "__main__":
