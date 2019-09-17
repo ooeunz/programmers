@@ -1,20 +1,18 @@
 # 쇠막대기
 def solution(irons):
     # initialization
-    OPEN, CLOSE, LASER = '(', ')', 'l'
-    irons = irons.replace("()", LASER)
+    irons = irons.replace("()", "l")
 
     ans = 0
     stack = []
 
-    # running
     for iron in irons:
-        if iron == OPEN:
-            stack.append(OPEN)
-        elif iron == CLOSE:
+        if iron == "(":
+            stack.append(iron)
+        elif iron == ")":
             stack.pop()
             ans += 1
-        elif iron == LASER:
+        elif iron == "l":
             ans += len(stack)
     return ans
     
