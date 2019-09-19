@@ -40,6 +40,7 @@ def solution(board, nums):
         for index, value in enumerate(board):
             if check in value:
                 board[index][check] = True
+                break
 
     grid = list(map(lambda x: list(x.values()), board))
 
