@@ -3,24 +3,20 @@ import itertools
 
 def solution(n):
     # initialization
-    lst = [i for i in range(2, n)]
-    nets = [(4, 2), (6, 3), (10, 5)]
-    count = check = 0
     collection = []
+    count = 0
+    lst = set(range(2,n+1))
 
-    # remove Composite Numbers
-    for start, step in nets:
-        if start <= n:
-            for i in range(start, n, step):
-                if i in lst:
-                    lst.remove(i)
-
+    for i in range(2,n+1):
+        if i in lst:
+            lst -= set(range(2*i,n+1,i))
+    
     # find
-    collection.extend(list(itertools.permutations(lst, 3)))
+    collection.extend(list(itertools.combinations(lst, 3)))
     for i in collection:
         if sum(i) == n:
             count += 1
-    return count//6
+    return count
 
 if __name__ == "__main__":
     print(solution(33))
