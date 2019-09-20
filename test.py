@@ -1,20 +1,19 @@
-def solution(arrng):
-    beam = 0
-    answer = 0
+from timeit import timeit
 
-    OPEN, CLOSE, LASER = '(', ')', 'l'
+setup = 'test_list = [10 ** 3] * 10 ** 8'
+number = 10 **3
 
-    arrng = arrng.replace('()', LASER)
+stmt = '''
+while test_list:
+    test_list.pop()
+'''
+print(timeit(stmt=stmt, setup=setup, number=number))
+# 4.991474372000084
 
-    for a in arrng:
-        if a == OPEN:
-            beam += 1
-        elif a == CLOSE:
-            beam -= 1
-            answer += 1
-        elif a == LASER:
-            answer += beam
-
-    return answer
-
-print(solution("()(((()())(())()))(())"))
+stmt = '''
+test_list_pop = test_list.pop
+while test_list:
+    test_list_pop()
+'''
+print(timeit(stmt=stmt, setup=setup, number=number))
+# 3.1912732280002274
