@@ -1,19 +1,25 @@
-from timeit import timeit
+def solution(budgets, M):
+    start = 0
+    end = M
+    mid = (start + end) // 2
 
-setup = 'test_list = [10 ** 3] * 10 ** 8'
-number = 10 **3
+    max_budget = max(budgets)
 
-stmt = '''
-while test_list:
-    test_list.pop()
-'''
-print(timeit(stmt=stmt, setup=setup, number=number))
-# 4.991474372000084
+    while True:
+        m = sum(budget if budget <= mid else mid for budget in budgets)
+        delta = sum(1 if budget > mid else 0 for budget in budgets)
 
-stmt = '''
-test_list_pop = test_list.pop
-while test_list:
-    test_list_pop()
-'''
-print(timeit(stmt=stmt, setup=setup, number=number))
-# 3.1912732280002274
+        if M - delta < m <= M:
+            break
+        elif m > M:
+            end = mid
+        else:
+            if mid > max_budget:
+                return max_budget
+            start = mid
+        mid = (start + end) // 2
+
+    return mid
+
+print(solution([120, 110, 140, 150], 485))
+print(solution([120, 110, 140, 150], 1000))

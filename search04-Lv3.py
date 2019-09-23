@@ -1,19 +1,23 @@
 # 예산_탐색
-import bisect
 def solution(budgets, M):
-    budgets.sort()
-    MAX = 1000000000
-    min = M // len(budgets)
-    max_budget = M
+    lower_bound = 1
+    upper_bound = M
+    max_budget = max(budgets)
 
-    for limit in range(min, MAX):
-        num = bisect.bisect_right(budgets, limit)
-        max_budget -= limit * (len(budgets) - num)
-        max_budget -= sum([budgets[n] for n in range(num)])
-        if max_budget < 0:
-            return limit-1
+    while True:
+        mid = (lower_bound + upper_bound) // 2
+        cal = sum(min(mid, budget) for budget in budgets)
+        n = len([budget for budget in budgets if budget >= mid])
+
+        if M - n < cal and cal <= M:
+            break
+        elif M > cal:   #  M - cal >= 0:
+            if mid > max_budget:
+                return max_budget
+            lower_bound = mid
         else:
-            max_budget = M
+            upper_bound = mid
+    return mid
         
 if __name__ == "__main__":
     print(solution([120, 110, 140, 150], 485))
