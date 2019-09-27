@@ -1,10 +1,13 @@
-def dfs(graph, start):
-    visited = []
-    stack = [start]
+import pygame
+import sys
 
-    while stack:
-        n = stack.pop()
-        if n not in visited:
-            visited.append(n)
-            stack += graph[n] - set(visited)
-    return visited
+screen = pygame.display.set_mode((500, 500))
+
+while 1:
+    for e in pygame.event.get():
+        if e.type == pygame.QUIT:
+            sys.quit()
+
+    screen.fill((255, 255, 0))
+
+    pygame.display.update()
