@@ -21,4 +21,4 @@ def solution(prices):
 
 if __name__ == "__main__":
     print(solution([1, 2, 3, 2, 3]))    # [4, 3, 1, 1, 0]
-    print(solution([2, 3, 4, 5, 6]))
+    print(solution([2, 3, 4, 5, 6]))    # [4, 3, 2, 1, 0]
