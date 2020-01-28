@@ -10,10 +10,6 @@ def solution(progresses, speeds):
     while progress:
         for num in range(len(progress)):
             progress[num] += speed[num]
-
-        # for i, j in zip(progress, speeds):
-        #     i += j
-        
         
         while progress[0] >= 100:
             progress.popleft()
