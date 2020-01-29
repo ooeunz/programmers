@@ -13,7 +13,6 @@ def dfs(node: int, numbers: list, target: int, cur_value: int):
 
 def solution(numbers, target):
     dfs(0, numbers, target, 0)
-    global cnt
     return cnt
 
 if __name__ == "__main__":
