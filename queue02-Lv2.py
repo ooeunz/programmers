@@ -16,7 +16,7 @@ def solution(progresses, speeds):
             speed.popleft()
             count += 1
             if not progress:
-                break;
+                break
         if count:
             answer.append(count)
             count = 0
