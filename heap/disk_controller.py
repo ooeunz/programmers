@@ -1,6 +1,7 @@
 import heapq
 from collections import deque
 
+
 def cal_ave(begin: int, end_time: int):
     return end_time - begin
 
