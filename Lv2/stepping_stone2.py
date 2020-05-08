@@ -7,10 +7,17 @@ def solution(stones: list, k: int):
         mid = (start + end) // 2
         ex_stones = [0 if stones[i] < mid else stones[i] for i in range(len(stones))]
         cnt = 0
+        total = 0
+
         for stone in ex_stones:
-            if not stone:
+            if stone == 0:
                 cnt += 1
-        if cnt >= k:
+            else:
+                total = max(total, cnt)
+                cnt = 0
+
+        total = max(total, cnt)
+        if total >= k:
             end = mid - 1
         else:
             ans = mid
