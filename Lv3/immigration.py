@@ -1,6 +1,4 @@
 def solution(n: int, times: list):
-    times.sort()
-
     start, end = 1, max(times) * n
     ans = end
 
